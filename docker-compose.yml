@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: fda
+      POSTGRES_USER: fda_admin        #should be configured via vault
+      POSTGRES_PASSWORD: fda_password #should be configured via vault
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
