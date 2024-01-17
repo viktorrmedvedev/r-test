@@ -6,8 +6,8 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_DB: fda
-      POSTGRES_USER: fda_admin        #should be configured via vault
-      POSTGRES_PASSWORD: fda_password #should be configured via vault
+      POSTGRES_USER: fda_admin
+      POSTGRES_PASSWORD: fda_password
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
