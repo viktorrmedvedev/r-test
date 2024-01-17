@@ -18,6 +18,6 @@ public class SearchExpander implements Param.Expander {
                     .collect(Collectors.joining("+"));
         }
 
-        throw new IllegalStateException("Param brandName must be of type java.lang.String, but was %s".formatted(value.getClass()));
+        throw new IllegalStateException("Search param must be of type java.lang.Map<String, String>, but was %s".formatted(value.getClass()));
     }
 }
